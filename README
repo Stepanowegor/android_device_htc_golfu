@@ -34,6 +34,34 @@ Copyright (C) 2012 Munjeni
   $ repo init -u git://github.com/CyanogenMod/android.git -b ics
   $ repo sync -j16
 
+
+
+  Clone Golfu CM9 source code
+
+  $ cd device
+  $ mkdir htc
+  $ cd htc
+  $ git clone git://github.com/munjeni/android_device_htc_golfu.git golfu
+
+
+
+  Make vendor specific files
+
+  Connect your device runing stockrom to the your local machine and execute script!
+
+  $ cd golfu
+  $ ./extract-files.sh
+  $ cd ../../..
+
+
+
+  Copy msm7627a audio source code to the android/hardware/qcom
+
+  $ cd android/hardware/qcom && git clone git://github.com/cm2pico/android_hardware_qcom_audio.git audio
+  $ cd ../../..
+
+
+
   Setup vendor
 
   $ cd vendor/cm/
@@ -42,7 +70,7 @@ Copyright (C) 2012 Munjeni
   Setup environment
 
   $ source build/envsetup.sh
-  $ lunch 6
+  $ lunch cm_golfu-userdebug
 
 
   Build CM9
@@ -55,6 +83,7 @@ Copyright (C) 2012 Munjeni
   Cyanogen
   attn1
   CyanogenMod team
+  cm2pico
 
 ----
 EOF
