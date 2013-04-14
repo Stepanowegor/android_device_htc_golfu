@@ -1,23 +1,33 @@
-LOCAL_PATH := $(call my-dir)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),pico)
+
+# When zero we link against libmmcamera; when 1, we dlopen libmmcamera.
+DLOPEN_LIBMMCAMERA:=1
+
+LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE_TAGS := optional
 
-LOCAL_C_FLAGS          += -O3
-LOCAL_MODULE_TAGS      := optional
-LOCAL_MODULE_PATH      := $(TARGET_OUT_SHARED_LIBRARIES)/hw
-LOCAL_MODULE           := camera.golfu
+LOCAL_SRC_FILES:= QualcommCameraHardware.cpp
 
-LOCAL_SRC_FILES        := cameraHal.cpp
+LOCAL_CFLAGS:= -DDLOPEN_LIBMMCAMERA=$(DLOPEN_LIBMMCAMERA)
 
-LOCAL_SHARED_LIBRARIES := liblog libdl libutils libcamera_client libbinder \
-                          libcutils libhardware libui libcamerapp
+LOCAL_CFLAGS+= -DNUM_PREVIEW_BUFFERS=4 -D_ANDROID_
 
-LOCAL_C_INCLUDES       := frameworks/base/services \
-                          frameworks/base/include \
-                          hardware/libhardware/include \
-                          hardware/qcom/display/libgralloc
+LOCAL_C_INCLUDES+= \
+    $(TARGET_OUT_HEADERS)/mm-camera \
+    $(TARGET_OUT_HEADERS)/mm-still/jpeg \
 
-LOCAL_PRELINK_MODULE   := false
+LOCAL_SHARED_LIBRARIES:= libutils libui libcamera_client liblog libcutils
 
+LOCAL_SHARED_LIBRARIES+= libbinder
+ifneq ($(DLOPEN_LIBMMCAMERA),1)
+LOCAL_SHARED_LIBRARIES+= liboemcamera
+else
+LOCAL_SHARED_LIBRARIES+= libdl
+endif
+
+LOCAL_MODULE:= libcamera
 include $(BUILD_SHARED_LIBRARY)
 
+endif
