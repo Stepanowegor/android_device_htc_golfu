@@ -1,27 +1,27 @@
 lib/libcamerapp.so
-etc/updatecmds/google_generic_update.txt \
-etc/agps_rm \
-etc/AudioFilter.csv \
-etc/AudioFilter_HP.csv \
-etc/AudioPara4.csv \
-etc/AudioPara4_WB.csv \
-etc/AudioPreProcess.csv \
-lib/egl/libEGL_adreno200.so \
-lib/egl/libGLES_android.so \
-lib/egl/libGLESv1_CM_adreno200.so \
-lib/egl/libGLESv2_adreno200.so \
-lib/egl/libq3dtools_adreno200.so \
-lib/egl/eglsubAndroid.so \
-lib/libmm-adspsvc.so \
-lib/libOmxH264Dec.so \
-lib/libOmxMpeg4Dec.so \
-lib/libOmxVidEnc.so \
-lib/libgsl.so \
-lib/libsc-a2xx.so \
-lib/libOpenVG.so \
-lib/libhtc_acoustic.so \
-lib/libaudioeq.so \
-lib/libhtc_ril.so \
-lib/liboemcamera.so \
-lib/libcamerapp.so \
+etc/updatecmds/google_generic_update.txt
+etc/agps_rm
+etc/AudioFilter.csv
+etc/AudioFilter_HP.csv
+etc/AudioPara4.csv
+etc/AudioPara4_WB.csv
+etc/AudioPreProcess.csv
+lib/egl/libEGL_adreno200.so
+lib/egl/libGLES_android.so
+lib/egl/libGLESv1_CM_adreno200.so
+lib/egl/libGLESv2_adreno200.so
+lib/egl/libq3dtools_adreno200.so
+lib/egl/eglsubAndroid.so
+lib/libmm-adspsvc.so
+lib/libOmxH264Dec.so
+lib/libOmxMpeg4Dec.so
+lib/libOmxVidEnc.so
+lib/libgsl.so
+lib/libsc-a2xx.so
+lib/libOpenVG.so
+lib/libhtc_acoustic.so
+lib/libaudioeq.so
+lib/libhtc_ril.so
+lib/liboemcamera.so
+lib/libcamerapp.so
 etc/bluetooth/main.conf
