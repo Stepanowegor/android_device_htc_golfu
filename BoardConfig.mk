@@ -25,7 +25,7 @@ USE_CAMERA_STUB := false
 # Arch and board related defines
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
-TARGET_BOARD_PLATFORM := msm7k
+TARGET_BOARD_PLATFORM := msm7x27a
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a
 TARGET_CPU_ABI := armeabi-v7a
