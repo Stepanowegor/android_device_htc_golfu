@@ -66,6 +66,9 @@ Copyright (C) 2012 Munjeni
 
   $ cd vendor/cm/
   $ ./get-prebuilts
+  $ cd ../..
+
+
 
   Setup environment
 
