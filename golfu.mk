@@ -208,9 +208,9 @@ PRODUCT_PACKAGES += \
     libOmxVidEnc \
     libstagefrighthw \
     dexpreopt \
-    copybit.msm7k \
-    gralloc.msm7k \
-    hwcomposer.msm7k \
+    copybit.msm7x27a \
+    gralloc.msm7x27a \
+    hwcomposer.msm7x27a \
     camera.golfu \
     lights.golfu \
     sensors.golfu \
@@ -218,7 +218,9 @@ PRODUCT_PACKAGES += \
     libaudioutils \
     com.android.future.usb.accessory \
     librpc \
-    e2fsck
+    e2fsck \
+    audio.primary.msm7x27a \
+    audio_policy.msm7x27a
 
 PRODUCT_LOCALES := en_GB
 PRODUCT_LOCALES += mdpi
