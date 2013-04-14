@@ -25,8 +25,6 @@ Copyright (C) 2012 Munjeni
   $ cd ~
   $ mkdir android
   $ cd android
-  $ mkdir system
-  $ cd system
 
 
   Do repo init & sync
@@ -57,8 +55,8 @@ Copyright (C) 2012 Munjeni
 
   Copy msm7627a audio source code to the android/hardware/qcom
 
-  $ cd android/hardware/qcom && git clone git://github.com/cm2pico/android_hardware_qcom_audio.git audio
-  $ cd ../../..
+  $ cd hardware/qcom && git clone git://github.com/cm2pico/android_hardware_qcom_audio.git audio
+  $ cd ../..
 
 
 
