@@ -15,12 +15,13 @@ on init
     mkdir /sd-ext
     mkdir /data/data
     mkdir /datadata
-    mkdir /emmc
+    mkdir /internal_sdcard
     mkdir /system
     mkdir /cache
     mount /tmp /tmp tmpfs
 
-    symlink /emmc /internal_sdcard
+    symlink /internal_sdcard /emmc
+
     chmod 0755 /sbin/busybox
 
 on boot

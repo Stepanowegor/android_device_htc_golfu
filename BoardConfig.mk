@@ -150,7 +150,12 @@ LOCAL_KERNEL := device/htc/golfu/prebuilt/kernel
 TARGET_RECOVERY_INITRC := device/htc/golfu/init.recovery.rc
 BOARD_HAS_NO_SELECT_BUTTON := true
 
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun0/file
+BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_otg/msm_hsusb/gadget/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_otg/msm_hsusb/gadget/lun0/file"
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"font_10x18.h\"
+BOARD_RECOVERY_CHAR_WIDTH := 10
+BOARD_RECOVERY_CHAR_HEIGHT := 18
+BOARD_SDCARD_INTERNAL_DEVICE := /dev/block/mmcblk0p32
 
 # Fix for Atmel touchscreens; trackball button
 BOARD_USE_LEGACY_TOUCHSCREEN := true
