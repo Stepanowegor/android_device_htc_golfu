@@ -232,17 +232,6 @@ PRODUCT_LOCALES := en_GB
 PRODUCT_LOCALES += mdpi
 
 PRODUCT_COPY_FILES += \
-    device/htc/golfu/prebuilt/bin/clockd:system/bin/clockd \
-    device/htc/golfu/prebuilt/bin/netsharing:system/bin/netsharing \
-    device/htc/golfu/prebuilt/bin/rild:system/bin/rild \
-    device/htc/golfu/prebuilt/bin/rmt_storage:system/bin/rmt_storage \
-    device/htc/golfu/prebuilt/bin/sdptool:system/bin/sdptool \
-    device/htc/golfu/prebuilt/bin/zcb:system/bin/zcb \
-    device/htc/golfu/prebuilt/bin/zchgd:system/bin/zchgd \
-    device/htc/golfu/prebuilt/bin/zimmer:system/bin/zimmer \
-    device/htc/golfu/prebuilt/bin/hci_qcomm_init:system/bin/hci_qcomm_init \
-    device/htc/golfu/prebuilt/bin/hciattach:system/bin/hciattach \
-    device/htc/golfu/prebuilt/xbin/wireless_modem:system/xbin/wireless_modem \
     device/htc/golfu/prebuilt/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
     device/htc/golfu/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
     device/common/gps/gps.conf_US:system/etc/gps.conf \
@@ -287,10 +276,15 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product, build/target/product/full_base_telephony.mk)
 
+$(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
+
+$(call inherit-product-if-exists, vendor/htc/golfu/golfu-vendor.mk)
+
+
 PRODUCT_NAME := generic_golfu
 PRODUCT_MANUFACTURER := HTC
 PRODUCT_DEVICE := HTC Desire C
 
-PRODUCT_AAPT_CONFIG := normal mdpi
+PRODUCT_AAPT_CONFIG := normal mdpi mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
