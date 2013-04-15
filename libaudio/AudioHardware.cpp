@@ -121,7 +121,7 @@ AudioHardware::AudioHardware() :
     mDualMicEnabled(false), mFmFd(-1), FmA2dpStatus(-1)
 {
    int (*set_acoustic_parameters)();
-  
+
    acoustic = ::dlopen("/system/lib/libhtc_acoustic.so", RTLD_NOW);
     if (acoustic == NULL ) {
         LOGE("Could not open libhtc_acoustic.so");
@@ -142,7 +142,7 @@ AudioHardware::AudioHardware() :
         LOGE("Could not set acoustic parameters to share memory: %d", rc);
 //        return;
     }
-    
+
     m7xsnddriverfd = open("/dev/msm_snd", O_RDWR);
     if (m7xsnddriverfd >= 0) {
         int rc = ioctl(m7xsnddriverfd, SND_GET_NUM_ENDPOINTS, &mNumSndEndpoints);
@@ -947,10 +947,10 @@ static int get_audpp_filter(void)
 }
 
 static int msm72xx_enable_postproc(bool state)
-{   
+{
    /*int (*msm72xx_enable_audpp)(int);
    msm72xx_enable_audpp = (int (*)(int))::dlsym(acoustic, "msm72xx_enable_audpp");
-   
+
     if(state){
         LOGI("Enabling post proc features with mask 0x%04x", post_proc_feature_mask);
         msm72xx_enable_audpp(post_proc_feature_mask);
@@ -1257,8 +1257,7 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
     }
 
     // if inputDevice == 0, restore output routing
-    if (new_snd_device == -1) 
-    {
+    if (new_snd_device == -1) {
 	LOGI("do output routing device %x\n", outputDevices);
         if (outputDevices & (outputDevices - 1)) {
             if ((outputDevices & AudioSystem::DEVICE_OUT_SPEAKER) == 0) {
@@ -1343,27 +1342,23 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
 
     if (mDualMicEnabled && mMode == AudioSystem::MODE_IN_CALL) 
     {
-        if (new_snd_device == SND_DEVICE_HANDSET) 
-	{
+        if (new_snd_device == SND_DEVICE_HANDSET) {
             LOGI("Routing audio to handset with DualMike enabled\n");
             new_snd_device = SND_DEVICE_IN_S_SADC_OUT_HANDSET;
         } 
-        else 
-	  if (new_snd_device == SND_DEVICE_SPEAKER) 
-	  {
+        else
+	  if (new_snd_device == SND_DEVICE_SPEAKER) {
             LOGI("Routing audio to speakerphone with DualMike enabled\n");
             new_snd_device = SND_DEVICE_IN_S_SADC_OUT_SPEAKER_PHONE;
 	  }
     }
 
 #if HAVE_FM_RADIO
-    if ((mFmFd == -1) && enableDgtlFmDriver ) 
-    {
+    if ((mFmFd == -1) && enableDgtlFmDriver ) {
         enableFM();
     } 
     else 
-      if ((mFmFd != -1) && !enableDgtlFmDriver ) 
-      {
+      if ((mFmFd != -1) && !enableDgtlFmDriver ) {
         disableFM();
       }
 #endif
@@ -1371,25 +1366,23 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
     if((outputDevices  == 0) && (FmA2dpStatus == true))
        new_snd_device = SND_DEVICE_FM_DIGITAL_BT_A2DP_HEADSET;
 
-    if (new_snd_device != -1 && new_snd_device != mCurSndDevice) 
-    {
-       ret = doAudioRouteOrMute(new_snd_device);	      
-	   
+    if (new_snd_device != -1 && new_snd_device != mCurSndDevice) {
+       ret = doAudioRouteOrMute(new_snd_device);
+
 	if(playback_in_progress)
            msm72xx_enable_postproc(false);
-	   
+
         snd_device = new_snd_device;
         post_proc_feature_mask = new_post_proc_feature_mask;
-	   
+
 	if(playback_in_progress)
            msm72xx_enable_postproc(true);
-	   
+
        mCurSndDevice = new_snd_device;
     }
 
     return ret;
 }
-
 
 #if HAVE_FM_RADIO
 status_t AudioHardware::enableFM()
