@@ -102,7 +102,7 @@ WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/ath6kl.ko"
 WIFI_DRIVER_MODULE_NAME     := "ath6kl"
 
 # audio
-TARGET_PROVIDES_LIBAUDIO := false
+TARGET_PROVIDES_LIBAUDIO := true
 
 # Target libs check
 BOARD_PROVIDES_LIBRIL := false
