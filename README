@@ -40,6 +40,17 @@ Copyright (C) 2012 Munjeni
   $ mkdir htc
   $ cd htc
   $ git clone git://github.com/munjeni/android_device_htc_golfu.git golfu
+  $ cd ../..
+
+
+
+  Clone Golfu CM9 kernel source code
+
+  $ cd kernel
+  $ mkdir htc
+  $ cd htc
+  $ git clone git://github.com/munjeni/kernel_htc_golfu.git golfu
+  $ cd ../..
 
 
 
@@ -47,16 +58,9 @@ Copyright (C) 2012 Munjeni
 
   Connect your device runing stockrom to the your local machine and execute script!
 
-  $ cd golfu
+  $ cd device/htc/golfu
   $ ./extract-files.sh
   $ cd ../../..
-
-
-
-  Copy msm7627a audio source code to the android/hardware/qcom
-
-  $ cd hardware/qcom && git clone git://github.com/cm2pico/android_hardware_qcom_audio.git audio
-  $ cd ../..
 
 
 

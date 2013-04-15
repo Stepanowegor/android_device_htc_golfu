@@ -30,7 +30,7 @@ on init
     chmod 0640 /dev/akm8975_aot
     chmod 0640 /dev/akm8975_daemon
     chmod 0640 /dev/bma150
-	mkdir /mnt/emmc 0000 system system
+    mkdir /mnt/emmc 0000 system system
 
 on boot
 # unmap left alt to avoid console switch

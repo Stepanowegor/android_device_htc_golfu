@@ -37,6 +37,14 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 # inherit from the proprietary version
 -include vendor/htc/golfu/BoardConfigVendor.mk
 
+TARGET_KERNEL_SOURCE := kernel/htc/golfu
+TARGET_KERNEL_CONFIG := golfu_defconfig
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
+BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
+BOARD_KERNEL_BASE := 0x13000000
+
+TARGET_SPECIFIC_HEADER_PATH := device/htc/golfu/include
+
 #graphics
 USE_OPENGL_RENDERER := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
@@ -45,7 +53,7 @@ BOARD_EGL_CFG := device/htc/golfu/prebuilt/lib/egl/egl.cfg
 TARGET_USES_GENLOCK := true
 TARGET_USES_OVERLAY := false
 TARGET_HAVE_BYPASS := false
-TARGET_USES_C2D_COMPOSITION := false
+TARGET_USES_C2D_COMPOSITION := true
 # Allow fallback to ashmem
 TARGET_GRALLOC_USES_ASHMEM := true
 BOARD_NO_RGBX_8888 := true
@@ -70,8 +78,6 @@ COMMON_GLOBAL_CFLAGS += -DFORCE_CPU_UPLOAD
 # liblights
 TARGET_PROVIDES_LIBLIGHTS := true
 
-TARGET_SPECIFIC_HEADER_PATH := device/htc/golfu/include
-
 TARGET_BOOTLOADER_BOARD_NAME := golfu
 
 TARGET_PROVIDES_INIT_TARGET_RC := true
@@ -92,14 +98,11 @@ BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_ath6kl
 WPA_SUPPLICANT_VERSION      := VER_0_8_X
 BOARD_WLAN_DEVICE           := ath6kl
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/ath6kl_sdio.ko"
-WIFI_DRIVER_MODULE_NAME     := "ath6kl_sdio"
-
-BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
-BOARD_KERNEL_BASE := 0x13000000
+WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/ath6kl.ko"
+WIFI_DRIVER_MODULE_NAME     := "ath6kl"
 
 # audio
-TARGET_PROVIDES_LIBAUDIO := true
+TARGET_PROVIDES_LIBAUDIO := false
 
 # Target libs check
 BOARD_PROVIDES_LIBRIL := false
@@ -109,13 +112,12 @@ BOARD_USE_NEW_LIBRIL_HTC := true
 BOARD_HAVE_BLUETOOTH := true
 
 #fm
-#BOARD_HAVE_FM_RADIO := true
-#BOARD_FM_DEVICE := bcm4329
-#BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+BOARD_HAVE_FM_RADIO := true
+BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
 BOARD_VENDOR_QCOM_AMSS_VERSION := 6225
 
-BOARD_VENDOR_USE_AKMD := akm8973
+BOARD_VENDOR_USE_AKMD := akm8975
 
 BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
 
@@ -141,13 +143,9 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 836763136
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1023409664
 BOARD_FLASH_BLOCK_SIZE := 2048
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
-TARGET_PREBUILT_KERNEL := device/htc/golfu/prebuilt/kernel
-LOCAL_KERNEL := device/htc/golfu/prebuilt/kernel
-
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/golfu/prebuilt/recovery_kernel
 #BOARD_USES_RECOVERY_CHARGEMODE := true
-TARGET_RECOVERY_INITRC := device/htc/golfu/init.recovery.rc
+TARGET_RECOVERY_INITRC := device/htc/golfu/prebuilt/recovery/init.recovery.rc
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_otg/msm_hsusb/gadget/lun0/file"
@@ -172,6 +170,6 @@ COMMON_GLOBAL_CFLAGS += -DBOARD_GL_OES_EGL_IMG_EXTERNAL_HACK
 WITH_MALLOC_LEAK_CHECK := true
 TARGET_USES_SF_BYPASS := false
 BOARD_USE_QCOM_PMEM := true
-BOARD_OVERLAY_FORMAT_YCbCr_420_SP := true
+#BOARD_OVERLAY_FORMAT_YCbCr_420_SP := true
 
 TARGET_OTA_ASSERT_DEVICE := golfu

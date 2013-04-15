@@ -36,9 +36,13 @@ PRODUCT_COPY_FILES += \
     device/htc/golfu/prebuilt/etc/gps.conf:system/etc/gps.conf
 
 PRODUCT_COPY_FILES += \
-    device/htc/golfu/init.golfu.rc:root/init.golfu.rc \
-    device/htc/golfu/init.usb.rc:root/init.usb.rc \
-    device/htc/golfu/ueventd.golfu.rc:root/ueventd.golfu.rc
+    device/htc/golfu/prebuilt/root/init:root/init \
+    device/htc/golfu/prebuilt/root/init.rc:root/init.rc \
+    device/htc/golfu/prebuilt/root/init.golfu.rc:root/init.golfu.rc \
+    device/htc/golfu/prebuilt/root/init.usb.rc:root/init.usb.rc \
+    device/htc/golfu/prebuilt/root/ueventd.golfu.rc:root/ueventd.golfu.rc \
+    device/htc/golfu/prebuilt/root/ueventd.rc:root/ueventd.rc \
+    device/htc/golfu/prebuilt/root/logo.rle:root/logo.rle
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.ecc.VODA-Africa-South=112,911,999 \
@@ -197,7 +201,7 @@ PRODUCT_COPY_FILES += \
 
 # media config xml file
 PRODUCT_COPY_FILES += \
-    device/htc/golfu/media_profiles.xml:system/etc/media_profiles.xml
+    device/htc/golfu/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
 
 PRODUCT_PACKAGES += \
     librs_jni \
@@ -220,7 +224,9 @@ PRODUCT_PACKAGES += \
     librpc \
     e2fsck \
     audio.primary.msm7x27a \
-    audio_policy.msm7x27a
+    audio_policy.msm7x27a \
+    libtilerenderer \
+    libQcomUI
 
 PRODUCT_LOCALES := en_GB
 PRODUCT_LOCALES += mdpi
@@ -238,17 +244,9 @@ PRODUCT_COPY_FILES += \
     device/htc/golfu/prebuilt/bin/hciattach:system/bin/hciattach \
     device/htc/golfu/prebuilt/xbin/wireless_modem:system/xbin/wireless_modem \
     device/htc/golfu/prebuilt/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    device/htc/golfu/vold.fstab:system/etc/vold.fstab \
+    device/htc/golfu/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
     device/common/gps/gps.conf_US:system/etc/gps.conf \
-    vendor/cm/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml \
-    device/htc/golfu/prebuilt/root/logo.rle:root/logo.rle
-
-# Kernel modules
-PRODUCT_COPY_FILES += \
-    device/htc/golfu/prebuilt/lib/modules/ath6kl_sdio.ko:system/lib/modules/ath6kl_sdio.ko \
-    device/htc/golfu/prebuilt/lib/modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
-    device/htc/golfu/prebuilt/lib/modules/compat.ko:system/lib/modules/compat.ko \
-    device/htc/golfu/prebuilt/lib/modules/kineto_gan.ko:system/lib/modules/kineto_gan.ko
+    vendor/cm/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := device/htc/golfu/prebuilt/kernel

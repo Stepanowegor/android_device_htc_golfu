@@ -192,7 +192,7 @@ on post-fs-data
 
     # create directory for DRM plug-ins - give drm the read/write access to
     # the following directory.
-    mkdir /data/drm 0770 drm drm
+    mkdir /data/drm 0774 drm drm
 
     chown system system /sys/class/android_usb/android0/f_mass_storage/lun/file
     chmod 0660 /sys/class/android_usb/android0/f_mass_storage/lun/file
@@ -539,18 +539,18 @@ service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-sys
 service drm /system/bin/drmserver
     class main
     user drm
-    group system inet drmrpc
+    group system inet drmrpc oma_drm_group
 
 service media /system/bin/mediaserver
     class main
     user media
-    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc
+    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc cw_access oma_drm_group
     ioprio rt 4
 
 service bootanim /system/bin/bootanimation
     class main
     user graphics
-    group graphics
+    group system audio graphics cw_access
     disabled
     oneshot
 
