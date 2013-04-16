@@ -85,18 +85,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib/libhtc_ril.so \
     rild.libargs=-d /dev/smd0 \
     persist.radio.adb_log_on=1 \
-    ro.baseband.arch = msm \
+    ro.baseband.arch=msm \
     rild.libpath.ganlite=/system/lib/librilswitch.so \
     rilswitch.vendorlibpath=/system/lib/libhtc_ril.so \
     rilswitch.ganlibpath=/system/lib/libganril.so \
-    ro.ril.hep = 1 \
-    ro.ril.enable.dtm = 0 \
-    ro.ril.hsdpa.category = 8 \
-    ro.ril.htcmaskw1.bitmask = 4294967295 \
-    ro.ril.htcmaskw1 = 14449 \
+    ro.ril.hep=1 \
+    ro.ril.enable.dtm=0 \
+    ro.ril.hsdpa.category=8 \
+    ro.ril.htcmaskw1.bitmask=4294967295 \
+    ro.ril.htcmaskw1=14449 \
     mobiledata.interfaces=rmnet0,rmnet1,rmnet2,gprs,ppp0 \
     wifi.interface=wlan0 \
-    wifi.softap.interface = wlan0 \
+    wifi.softap.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
     ro.sf.lcd_density=160 \
     ro.opengles.version=131072 \
@@ -104,13 +104,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.htc.camerahack=msm7k \
     ro.product.processor=600MHz \
     ro.product.ram=512MB \
-    ro.product.display_resolution = 3.5 inch HVGA resolution \
+    ro.product.display_resolution=3.5 inch HVGA resolution \
     ro.product.main_camera=5M \
     ro.product.front_camera=NA \
     ro.product.bluetooth= 4.0 \
-    ro.product.wifi = 802.11 b/g/n \
-    ro.product.nled_off = 1 \
-    ro.ril.update.acoustic.table = 1
+    ro.product.wifi=802.11 b/g/n \
+    ro.product.nled_off=1 \
+    ro.ril.update.acoustic.table=1
 
 # Default network type.
 # 0 => WCDMA preferred.
@@ -119,7 +119,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # For emmc phone storage
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.phone_storage = 1
+    ro.phone_storage=1
 
 
 # This is a 512MB device, so 32mb heapsize
@@ -156,15 +156,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=mdp \
     ro.framework.gestureservice=0 \
     ro.vendor.extension_library=/system/lib/libqc-opt.so \
-    ro.ext4fs = 1 \
-    htc.audio.alc.enable = 1 \
-    htc.audio.swalt.enable = 1 \
-    lpa.decode = false \
-    lpa.use-stagefright = false \
-    htc.audio.global.state = 0 \
-    htc.audio.global.profile = 0 \
-    htc.audio.beats.state = 1 \
-    htc.audio.beats.config = 1 \
+    ro.ext4fs=1 \
+    htc.audio.alc.enable=1 \
+    htc.audio.swalt.enable=1 \
+    lpa.decode=false \
+    lpa.use-stagefright=false \
+    htc.audio.global.state=0 \
+    htc.audio.global.profile=0 \
+    htc.audio.beats.state=1 \
+    htc.audio.beats.config=1 \
     persist.htc.audio.pcm.samplerate=44100 \
     persist.htc.audio.pcm.channels=2
 #    debug.egl.swapinterval=-1 \
