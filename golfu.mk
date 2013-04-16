@@ -96,6 +96,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.htcmaskw1 = 14449 \
     mobiledata.interfaces=rmnet0,rmnet1,rmnet2,gprs,ppp0 \
     wifi.interface=wlan0 \
+    wifi.softap.interface = wlan0 \
     wifi.supplicant_scan_interval=15 \
     ro.sf.lcd_density=160 \
     ro.opengles.version=131072 \
