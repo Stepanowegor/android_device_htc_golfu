@@ -31,6 +31,7 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_CORTEX_CACHE_LINE_32 := true
 
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
@@ -45,7 +46,7 @@ BOARD_KERNEL_BASE := 0x13000000
 
 TARGET_SPECIFIC_HEADER_PATH := device/htc/golfu/include
 
-#graphics
+# graphics
 USE_OPENGL_RENDERER := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60
@@ -59,7 +60,7 @@ TARGET_GRALLOC_USES_ASHMEM := true
 BOARD_NO_RGBX_8888 := true
 TARGET_BOOTANIMATION_NAME := vertical-320x480
 
-#for camera
+# for camera
 COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT
 
 # Skia
@@ -103,6 +104,8 @@ WIFI_DRIVER_MODULE_NAME     := "ath6kl"
 
 # audio
 TARGET_PROVIDES_LIBAUDIO := true
+# configuration taken from CAF: They say msm7x27a variants does not directly supports speaker
+BOARD_NO_SPEAKER := true
 
 # Target libs check
 BOARD_PROVIDES_LIBRIL := false
