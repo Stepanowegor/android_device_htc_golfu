@@ -249,16 +249,6 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt Modules
 PRODUCT_COPY_FILES += \
-    device/htc/golfu/prebuilt/lib/libqc-opt.so:system/lib/libqc-opt.so \
-    device/htc/golfu/prebuilt/lib/libgsl.so:system/lib/libgsl.so \
-    device/htc/golfu/prebuilt/lib/libOpenVG.so:system/lib/libOpenVG.so \
-    device/htc/golfu/prebuilt/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so \
-    device/htc/golfu/prebuilt/lib/egl/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
-    device/htc/golfu/prebuilt/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
-    device/htc/golfu/prebuilt/lib/egl/libGLES_android.so:system/lib/egl/libGLES_android.so \
-    device/htc/golfu/prebuilt/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
-    device/htc/golfu/prebuilt/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
-    device/htc/golfu/prebuilt/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
     device/htc/golfu/prebuilt/etc/firmware/ath6k:system/etc/firmware/ath6k \
     device/htc/golfu/prebuilt/etc/firmware/ath6k/AR6003:system/etc/firmware/ath6k/AR6003 \
     device/htc/golfu/prebuilt/etc/firmware/ath6k/AR6003/hw2.1.1:system/etc/firmware/ath6k/AR6003/hw2.1.1 \

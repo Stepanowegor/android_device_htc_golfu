@@ -7,6 +7,10 @@ etc/AudioPara4_WB.csv
 etc/AudioPreProcess.csv
 etc/bluetooth/main.conf
 lib/libcamerapp.so
+lib/libgsl.so
+lib/libsc-a2xx.so
+lib/libqc-opt.so
+lib/libOpenVG.so
 lib/egl/libEGL_adreno200.so
 lib/egl/libGLES_android.so
 lib/egl/libGLESv1_CM_adreno200.so
@@ -17,9 +21,6 @@ lib/libmm-adspsvc.so
 lib/libOmxH264Dec.so
 lib/libOmxMpeg4Dec.so
 lib/libOmxVidEnc.so
-lib/libgsl.so
-lib/libsc-a2xx.so
-lib/libOpenVG.so
 lib/libhtc_acoustic.so
 lib/libaudioeq.so
 lib/libhtc_ril.so
