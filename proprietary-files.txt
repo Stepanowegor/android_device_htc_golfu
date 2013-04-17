@@ -6,7 +6,6 @@ etc/AudioPara4.csv
 etc/AudioPara4_WB.csv
 etc/AudioPreProcess.csv
 etc/bluetooth/main.conf
-lib/libcamerapp.so
 lib/libgsl.so
 lib/libsc-a2xx.so
 lib/libqc-opt.so
@@ -26,6 +25,17 @@ lib/libaudioeq.so
 lib/libhtc_ril.so
 lib/liboemcamera.so
 lib/libcamerapp.so
+lib/hw/camera.default.so
+lib/libmmipl.so
+lib/libmmjpeg.so
+lib/libcameraface.so
+lib/libOlaEngine.so
+lib/libchromatix_s5k4e1_default_video.so
+lib/libchromatix_s5k4e1_preview.so
+lib/libmm-adspsvc.so
+bin/awb_camera
+bin/lsc_camera
+bin/mm-qcamera-daemon
 bin/clockd
 bin/hci_qcomm_init
 bin/hciattach

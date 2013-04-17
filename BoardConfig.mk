@@ -20,7 +20,7 @@
 # definition file).
 #
 
-USE_CAMERA_STUB := false
+USE_CAMERA_STUB := true
 
 # Arch and board related defines
 TARGET_NO_BOOTLOADER := true
