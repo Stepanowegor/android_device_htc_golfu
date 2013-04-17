@@ -21,3 +21,4 @@
 /dev/ttyHSUSB0                                 0600    system  system
 /dev/ttySA0                                    0600    system  system
 /dev/smd9                                      0600    system  system
+/dev/msm_camera/*                              0660    system  camera
