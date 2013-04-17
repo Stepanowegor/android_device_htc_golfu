@@ -26,6 +26,7 @@ lib/libhtc_ril.so
 lib/liboemcamera.so
 lib/libcamerapp.so
 lib/hw/camera.default.so
+lib/hw/sensors.golfu.so
 lib/libmmipl.so
 lib/libmmjpeg.so
 lib/libcameraface.so
