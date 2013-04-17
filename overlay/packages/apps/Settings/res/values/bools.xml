@@ -23,6 +23,4 @@
     <!-- Desire C have no leds -->
     <bool name="has_led">false</bool>
     <bool name="has_volume_wake">false</bool>
-    <!-- Desire C have no button lights -->
-    <bool name="has_button_light">false</bool>
 </resources>
