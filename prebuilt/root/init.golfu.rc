@@ -31,6 +31,8 @@ on init
     chmod 0640 /dev/akm8975_daemon
     chmod 0640 /dev/bma150
     mkdir /mnt/emmc 0000 system system
+    symlink /mnt/emmc /emmc
+    symlink /mnt/emmc /ins
 
 on boot
 # unmap left alt to avoid console switch
