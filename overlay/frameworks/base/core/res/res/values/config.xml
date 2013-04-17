@@ -189,4 +189,6 @@
 
     <!-- Enable electron beam -->
     <bool name="config_animateScreenLights">false</bool>
+
+    <bool name="config_ui_enableFadingMarquee">false</bool>
 </resources>
