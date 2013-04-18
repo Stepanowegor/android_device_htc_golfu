@@ -1,0 +1,71 @@
+diff --git a/media/libstagefright/ACodec.cpp b/media/libstagefright/ACodec.cpp
+index f201682..c9e5244 100755
+--- a/media/libstagefright/ACodec.cpp
++++ b/media/libstagefright/ACodec.cpp
+@@ -143,6 +143,7 @@ private:
+ #ifdef QCOM_HARDWARE
+ static const int QOMX_COLOR_FormatYUV420PackedSemiPlanar64x32Tile2m8ka = 0x7FA30C03;
+ static const int OMX_QCOM_COLOR_FormatYVU420SemiPlanar = 0x7FA30C00;
++static const int QOMX_COLOR_FormatYVU420PackedSemiPlanar32m4ka = 0x7FA30C01;
+ 
+ class ColorFormatInfo {
+     private:
+@@ -164,7 +165,8 @@ const int32_t ColorFormatInfo::preferredFormat =
+     OMX_QCOM_COLOR_FormatYVU420SemiPlanar;
+ #endif
+ #ifdef TARGET7x27A
+-    OMX_QCOM_COLOR_FormatYVU420SemiPlanar;
++    //OMX_QCOM_COLOR_FormatYVU420SemiPlanar;
++    QOMX_COLOR_FormatYVU420PackedSemiPlanar32m4ka;
+ #endif
+ #ifdef TARGET8x50
+     OMX_QCOM_COLOR_FormatYVU420SemiPlanar;
+@@ -535,6 +537,8 @@ status_t ACodec::allocateOutputBuffersFromNativeWindow() {
+                  HAL_PIXEL_FORMAT_YCbCr_420_SP_TILED : def.format.video.eColorFormat;
+     if(def.format.video.eColorFormat == OMX_QCOM_COLOR_FormatYVU420SemiPlanar)
+         format = HAL_PIXEL_FORMAT_YCrCb_420_SP;
++    if(def.format.video.eColorFormat == QOMX_COLOR_FormatYVU420PackedSemiPlanar32m4ka)
++        format = HAL_PIXEL_FORMAT_YCrCb_420_SP_ADRENO;
+ #endif
+ 
+ #ifdef SAMSUNG_CODEC_SUPPORT
+@@ -1174,6 +1178,7 @@ status_t ACodec::setSupportedOutputFormat() {
+            || format.eColorFormat == OMX_TI_COLOR_FormatYUV420PackedSemiPlanar
+ #ifdef QCOM_HARDWARE
+            || format.eColorFormat == (OMX_COLOR_FORMATTYPE)OMX_QCOM_COLOR_FormatYVU420SemiPlanar
++           || format.eColorFormat == (OMX_COLOR_FORMATTYPE)QOMX_COLOR_FormatYVU420PackedSemiPlanar32m4ka
+            || format.eColorFormat ==  (OMX_COLOR_FORMATTYPE)QOMX_COLOR_FormatYUV420PackedSemiPlanar64x32Tile2m8ka
+ #endif
+            || format.eColorFormat == OMX_QCOM_COLOR_FormatYVU420SemiPlanar);
+diff --git a/media/libstagefright/OMXCodec.cpp b/media/libstagefright/OMXCodec.cpp
+index 8a43039..d3d4e65 100644
+--- a/media/libstagefright/OMXCodec.cpp
++++ b/media/libstagefright/OMXCodec.cpp
+@@ -133,8 +133,8 @@ const int32_t ColorFormatInfo::preferredColorFormat[] = {
+     QOMX_COLOR_FormatYVU420PackedSemiPlanar32m4ka
+ #endif
+ #ifdef TARGET7x27A
+-    OMX_QCOM_COLOR_FormatYVU420SemiPlanar,
+-    OMX_QCOM_COLOR_FormatYVU420SemiPlanar
++    QOMX_COLOR_FormatYVU420PackedSemiPlanar32m4ka,
++    QOMX_COLOR_FormatYVU420PackedSemiPlanar32m4ka
+ #endif
+ #ifdef TARGET8x50
+     OMX_QCOM_COLOR_FormatYVU420SemiPlanar,
+@@ -1993,6 +1993,7 @@ status_t OMXCodec::setVideoOutputFormat(
+                || format.eColorFormat == OMX_TI_COLOR_FormatYUV420PackedSemiPlanar
+ #ifndef STE_HARDWARE
+                || format.eColorFormat == OMX_QCOM_COLOR_FormatYVU420SemiPlanar
++               || format.eColorFormat == QOMX_COLOR_FormatYVU420PackedSemiPlanar32m4ka
+ #else
+                || format.eColorFormat == OMX_STE_COLOR_FormatYUV420PackedSemiPlanarMB
+ #endif
+@@ -2530,6 +2531,8 @@ status_t OMXCodec::allocateOutputBuffersFromNativeWindow() {
+                  HAL_PIXEL_FORMAT_YCbCr_420_SP_TILED : def.format.video.eColorFormat;
+     if(def.format.video.eColorFormat == OMX_QCOM_COLOR_FormatYVU420SemiPlanar)
+         format = HAL_PIXEL_FORMAT_YCrCb_420_SP;
++    if(def.format.video.eColorFormat == QOMX_COLOR_FormatYVU420PackedSemiPlanar32m4ka)
++        format = HAL_PIXEL_FORMAT_YCrCb_420_SP_ADRENO;
+ 
+     format ^= (mInterlaceFormatDetected ? HAL_PIXEL_FORMAT_INTERLACE : 0);
+ #endif

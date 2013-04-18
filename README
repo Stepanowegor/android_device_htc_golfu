@@ -27,14 +27,14 @@ Copyright (C) 2012 Munjeni
   $ cd android
 
 
-  Do repo init & sync
+* Do repo init & sync
 
   $ repo init -u git://github.com/CyanogenMod/android.git -b ics
   $ repo sync -j16
 
 
 
-  Clone Golfu CM9 source code
+* Clone Golfu CM9 source code
 
   $ cd device
   $ mkdir htc
@@ -44,7 +44,7 @@ Copyright (C) 2012 Munjeni
 
 
 
-  Clone Golfu CM9 kernel source code
+* Clone Golfu CM9 kernel source code
 
   $ cd kernel
   $ mkdir htc
@@ -54,7 +54,7 @@ Copyright (C) 2012 Munjeni
 
 
 
-  Make vendor specific files
+* Make vendor specific files
 
   Connect your device runing stockrom to the your local machine and execute script!
 
@@ -64,7 +64,7 @@ Copyright (C) 2012 Munjeni
 
 
 
-  Setup vendor
+* Setup vendor
 
   $ cd vendor/cm/
   $ ./get-prebuilts
@@ -72,15 +72,25 @@ Copyright (C) 2012 Munjeni
 
 
 
-  Setup environment
+* Make Openmax color format patch for Desire C
+
+  $ cd frameworks/base
+  $ patch -p1 < ../../device/htc/golfu/patches/add_missing_omx_color_format.patch
+  $ cd ../..
+
+
+
+* Setup environment
 
   $ source build/envsetup.sh
   $ lunch cm_golfu-userdebug
 
 
+
   Build CM9
 
   $ make otapackage -j4
+
 
 
 * Thanks

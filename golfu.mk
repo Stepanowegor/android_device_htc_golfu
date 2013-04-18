@@ -265,6 +265,7 @@ PRODUCT_COPY_FILES += \
     device/htc/golfu/prebuilt/etc/firmware/bahama.txt:system/etc/firmware/bahama.txt \
     device/htc/golfu/prebuilt/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     device/htc/golfu/prebuilt/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
+    device/htc/golfu/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     vendor/cm/prebuilt/common/bootanimation/vertical-320x480.zip:system/media/bootanimation.zip
 
 $(call inherit-product, build/target/product/full_base_telephony.mk)
