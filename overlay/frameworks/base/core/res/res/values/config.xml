@@ -71,8 +71,8 @@
          than the size of the config_autoBrightnessLevels array.
     -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
-        <item>255</item>
-        <item>255</item>
+        <item>0</item>
+        <item>0</item>
         <item>0</item>
         <item>0</item>
         <item>0</item>
@@ -108,12 +108,6 @@
 
     <integer name="config_deskDockKeepsScreenOn">0</integer>
     <integer name="config_carDockKeepsScreenOn">1</integer>
-
-    <!-- Default color for notification LED is green -->
-    <color name="config_defaultNotificationColor">#ff00ff00</color>
-
-    <!-- Default blink frequency for notification LED is 9 seconds. -->
-    <integer name="config_defaultNotificationLedOff">9000</integer>
 
     <!-- Component name of the service providing network location support. -->
     <string name="config_networkLocationProvider">com.google.android.location.NetworkLocationProvider</string>
@@ -191,4 +185,26 @@
     <bool name="config_animateScreenLights">false</bool>
 
     <bool name="config_ui_enableFadingMarquee">false</bool>
+
+    <!-- Desire C have no button lights -->
+    <bool name="config_autoBrightnessButtonKeyboard">false</bool>
+
+    <!-- LUN file to be used by legacy USB manager.
+         The existence of this file will be used to determine in the
+         legacy USB manager should be started.
+         Desire C have 2 lun files, one for internal sd mounts and seccond for external sd mounts
+         We ussing now external sdcard. Are we need legacy...?? -->
+    <string name="config_legacyUmsLunFile">/sys/devices/platform/msm_otg/msm_hsusb/gadget/lun0/file</string>
+
+    <!-- Hardware 'face' keys present on the device, stored as a bit field.
+         This integer should equal the sum of the corresponding value for each
+         of the following keys present:
+             1 - Home
+             2 - Back
+             4 - Menu
+             8 - Search
+            16 - App switch
+         For example, a device with Home, Back and Menu keys would set this
+         config to 7. -->
+    <integer name="config_deviceHardwareKeys">7</integer>
 </resources>
