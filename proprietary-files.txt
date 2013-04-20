@@ -34,6 +34,10 @@ lib/libOlaEngine.so
 lib/libchromatix_s5k4e1_default_video.so
 lib/libchromatix_s5k4e1_preview.so
 lib/libmm-adspsvc.so
+lib/modules/ath6kl_sdio.ko
+lib/modules/cfg80211.ko
+lib/modules/compat.ko
+lib/modules/kineto_gan.ko
 bin/awb_camera
 bin/lsc_camera
 bin/mm-qcamera-daemon
