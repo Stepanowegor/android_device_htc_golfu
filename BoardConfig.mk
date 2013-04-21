@@ -96,14 +96,6 @@ ENABLE_JSC_JIT := true
 WITH_DEXPREOPT := false
 
 # Wifi related defines
-#BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-#BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_ath6kl
-#WPA_SUPPLICANT_VERSION      := VER_0_8_X
-#BOARD_WLAN_DEVICE           := ath6kl
-#WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/ath6kl_sdio.ko"
-#WIFI_DRIVER_MODULE_NAME     := "ath6kl_sdio"
-#WIFI_BAND := 802_11_BG
-
 BOARD_WLAN_DEVICE                        := ath6kl
 WPA_SUPPLICANT_VERSION                   := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER              := NL80211
