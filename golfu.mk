@@ -31,9 +31,9 @@ PRODUCT_COPY_FILES += \
     device/htc/golfu/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
     device/htc/golfu/prebuilt/usr/idc/himax-touchscreen.idc:system/usr/idc/himax-touchscreen.idc
 
-# gps with agps
+# gps with agps for eu region
 PRODUCT_COPY_FILES += \
-    device/htc/golfu/prebuilt/etc/gps.conf:system/etc/gps.conf
+    device/common/gps/gps.conf_EU_SUPL:system/etc/gps.conf
 
 PRODUCT_COPY_FILES += \
     device/htc/golfu/prebuilt/root/init:root/init \
@@ -42,6 +42,7 @@ PRODUCT_COPY_FILES += \
     device/htc/golfu/prebuilt/root/init.usb.rc:root/init.usb.rc \
     device/htc/golfu/prebuilt/root/ueventd.golfu.rc:root/ueventd.golfu.rc \
     device/htc/golfu/prebuilt/root/ueventd.rc:root/ueventd.rc \
+    device/htc/golfu/prebuilt/root/init.cm.rc:root/init.cm.rc \
     device/htc/golfu/prebuilt/root/logo.rle:root/logo.rle
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -235,7 +236,6 @@ PRODUCT_LOCALES := en_GB
 PRODUCT_LOCALES += mdpi
 
 PRODUCT_COPY_FILES += \
-    device/htc/golfu/prebuilt/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
     device/htc/golfu/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
     device/common/gps/gps.conf_US:system/etc/gps.conf \
     vendor/cm/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml

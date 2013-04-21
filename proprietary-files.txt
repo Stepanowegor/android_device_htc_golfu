@@ -6,6 +6,9 @@ etc/AudioPara4.csv
 etc/AudioPara4_WB.csv
 etc/AudioPreProcess.csv
 etc/bluetooth/main.conf
+etc/init.qcom.bt.sh
+etc/init.qcom.fm.sh
+etc/init.qcom.post_boot.sh
 lib/libgsl.so
 lib/libsc-a2xx.so
 lib/libqc-opt.so
@@ -38,6 +41,8 @@ lib/modules/ath6kl_sdio.ko
 lib/modules/cfg80211.ko
 lib/modules/compat.ko
 lib/modules/kineto_gan.ko
+bin/fm_qsoc_patches
+bin/udhcpd
 bin/awb_camera
 bin/lsc_camera
 bin/mm-qcamera-daemon
@@ -51,4 +56,6 @@ bin/sdptool
 bin/zcb
 bin/zchgd
 bin/zimmer
+bin/ath6kl-fwlog-record
+bin/athtestcmd
 xbin/wireless_modem

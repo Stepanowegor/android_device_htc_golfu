@@ -27,7 +27,7 @@
 <!ATTLIST EncoderProfile duration (30|60) #REQUIRED>
 <!ATTLIST EncoderProfile cameraId (0) #REQUIRED>
 <!ELEMENT Video EMPTY>
-<!ATTLIST Video codec (h263|m4v) #REQUIRED>
+<!ATTLIST Video codec (h264|h263|m4v) #REQUIRED>
 <!ATTLIST Video bitRate CDATA #REQUIRED>
 <!ATTLIST Video width CDATA #REQUIRED>
 <!ATTLIST Video height CDATA #REQUIRED>
@@ -42,10 +42,11 @@
 <!ELEMENT ImageDecoding EMPTY>
 <!ATTLIST ImageDecoding memCap CDATA #REQUIRED>
 <!ELEMENT Camera EMPTY>
+<!ATTLIST Camera previewFrameRate CDATA #REQUIRED>
 <!ELEMENT EncoderOutputFileFormat EMPTY>
 <!ATTLIST EncoderOutputFileFormat name (mp4|3gp) #REQUIRED>
 <!ELEMENT VideoEncoderCap EMPTY>
-<!ATTLIST VideoEncoderCap name (h263|m4v|wmv) #REQUIRED>
+<!ATTLIST VideoEncoderCap name (h264|h263|m4v|wmv) #REQUIRED>
 <!ATTLIST VideoEncoderCap enabled (true|false) #REQUIRED>
 <!ATTLIST VideoEncoderCap minBitRate CDATA #REQUIRED>
 <!ATTLIST VideoEncoderCap maxBitRate CDATA #REQUIRED>
@@ -77,7 +78,7 @@
 <!ATTLIST VideoEditorCap maxOutputFrameHeight CDATA #REQUIRED>
 <!ATTLIST VideoEditorCap maxPrefetchYUVFrames CDATA #REQUIRED>
 <!ELEMENT ExportVideoProfile EMPTY>
-<!ATTLIST ExportVideoProfile name (h263|m4v) #REQUIRED>
+<!ATTLIST ExportVideoProfile name (h264|h263|m4v) #REQUIRED>
 <!ATTLIST ExportVideoProfile profile CDATA #REQUIRED>
 <!ATTLIST ExportVideoProfile level CDATA #REQUIRED>
 ]>
@@ -90,15 +91,15 @@
     <CamcorderProfiles cameraId="0">
 
         <EncoderProfile quality="high" fileFormat="mp4" duration="60">
-            <Video codec="h263"
-                   bitRate="1600000"
+            <Video codec="h264"
+                   bitRate="3000000"
                    width="640"
                    height="480"
-                   frameRate="15" />
+                   frameRate="24" />
 
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="16000"
+                   sampleRate="48000"
                    channels="1" />
 
         </EncoderProfile>
@@ -141,6 +142,12 @@
         minFrameHeight="144" maxFrameHeight="480"
         minFrameRate="1" maxFrameRate="30" />
 
+    <VideoEncoderCap name="h264" enabled="true"
+        minBitRate="64000" maxBitRate="6000000"
+        minFrameWidth="176" maxFrameWidth="800"
+        minFrameHeight="144" maxFrameHeight="480"
+        minFrameRate="1" maxFrameRate="30" />
+
     <VideoEncoderCap name="m4v" enabled="true"
         minBitRate="64000" maxBitRate="1600000"
         minFrameWidth="176" maxFrameWidth="640"
@@ -149,7 +156,7 @@
 
     <AudioEncoderCap name="aac" enabled="true"
         minBitRate="8192" maxBitRate="96000"
-        minSampleRate="8000" maxSampleRate="16000"
+        minSampleRate="8000" maxSampleRate="48000"
         minChannels="1" maxChannels="1" />
 
     <AudioEncoderCap name="amrnb" enabled="true"
@@ -190,13 +197,8 @@
         Please note that the values are in decimal.
         These values are for video encoder.
     -->
-    <!--
-      Codec = h.263, Baseline profile, level 0
-    -->
     <ExportVideoProfile name="h263" profile= "1" level="1"/>
-    <!--
-      Codec = mpeg4, Simple profile, level 3
-    -->
+    <ExportVideoProfile name="h264" profile="1" level="1"/>
     <ExportVideoProfile name="m4v" profile= "1" level="16"/>
 </MediaSettings>
 
