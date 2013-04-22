@@ -96,23 +96,13 @@ ENABLE_JSC_JIT := true
 WITH_DEXPREOPT := false
 
 # Wifi related defines
-BOARD_WLAN_DEVICE                        := ath6kl
-WPA_SUPPLICANT_VERSION                   := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER              := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB         := lib_driver_cmd_ath6kl
-BOARD_HOSTAPD_DRIVER                     := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB                := lib_driver_cmd_ath6kl
-BOARD_SOFTAP_DEVICE_TI                   := NL80211
-WIFI_DRIVER_MODULE_PATH                  := "/system/lib/modules/ath6kl_sdio.ko"
-WIFI_DRIVER_MODULE_NAME                  := "ath6kl_sdio"
-WIFI_DRIVER_MODULE_ARG                   := "suspend_mode=3 wow_mode=2 ar6k_clock=26000000 ath6kl_p2p=1"
-WIFI_DRIVER_P2P_MODULE_ARG               := "suspend_mode=3 wow_mode=2 ar6k_clock=26000000 ath6kl_p2p=1 debug_mask=0x2413"
-WIFI_SDIO_IF_DRIVER_MODULE_PATH          := "/system/lib/modules/cfg80211.ko"
-WIFI_SDIO_IF_DRIVER_MODULE_NAME          := "cfg80211"
-WIFI_SDIO_IF_DRIVER_MODULE_ARG           := ""
-WIFI_COMPAT_MODULE_PATH                  := "/system/lib/modules/compat.ko"
-WIFI_COMPAT_MODULE_NAME                  := "compat"
-WIFI_COMPAT_MODULE_ARG                   := ""
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_ath6kl
+WPA_SUPPLICANT_VERSION      := VER_0_8_X
+BOARD_WLAN_DEVICE           := ath6kl
+WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/ath6kl_sdio.ko"
+WIFI_DRIVER_MODULE_NAME     := "ath6kl_sdio"
+WIFI_BAND := 802_11_BG
 
 # audio
 TARGET_PROVIDES_LIBAUDIO := true
