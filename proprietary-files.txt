@@ -58,7 +58,6 @@ bin/zchgd
 bin/zimmer
 bin/ath6kl-fwlog-record
 bin/athtestcmd
-bin/charging
 media/zchgd/batt_0.rle
 media/zchgd/batt_100.rle
 media/zchgd/batt_10.rle
